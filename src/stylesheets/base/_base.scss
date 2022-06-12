@@ -1,0 +1,102 @@
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+*,
+html {
+  /* -webkit-font-smoothing: antialiased; */
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  box-sizing: border-box;
+}
+::selection {
+  background: #fff7c7; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #fff7c7; /* Gecko Browsers */
+}
+
+body {
+  font-family: 'Poppins';
+  color: $text-color;
+  letter-spacing: 0;
+  overflow-x: hidden;
+}
+main {
+  min-height: 80vh;
+}
+button:focus {
+  outline: 0;
+}
+.Container{
+  max-width: 1480px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.btn-primary, .btn-secondary{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 11px 30px;
+  border-radius: 28px;
+  text-align: center;
+  width: max-content;
+}
+.btn-primary{
+  background: $theme-green; 
+}
+.btn-secondary{
+  background: white;
+  border: 3px solid #192F51;
+}
+.flex-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  &.wrap-reverse{
+    flex-wrap: wrap-reverse!important;
+  }
+}
+.center-wrap{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  max-width: $width-7;
+
+  .btn-primary,.btn-secondary{
+    margin: 0 auto;
+  }
+}
+.btn-box{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  @media screen and (max-width: $mobile) {
+    .btn-primary, .btn-secondary{
+      margin: 0 auto;
+      width: 100%;
+    }
+  } 
+}
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--auto-grid-min-size), 1fr)
+  );
+  grid-gap: 2rem;
+  max-width: inherit;
+}
+
+section{
+  padding: 30px 0;
+  position: relative;
+}
+
+/* Small Devices, Tablets */

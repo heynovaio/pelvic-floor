@@ -1,0 +1,116 @@
+header{
+  padding: 0 ;
+}
+
+.banner{
+  background: $text-color;
+  display: flex;
+  justify-content: flex-end;
+  height: 50px;
+  align-items: center;
+  padding: 0 20px;
+}
+.language-switcher{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  svg{
+    filter: brightness(0) invert(1);
+  }
+
+  span,select{
+    background: none;
+    color: white;
+  }
+}
+
+.nav-menu{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  align-items: flex-start;
+  margin: 0;
+  padding: 20px;
+  position: relative;
+  height: 110px;
+}
+.nav-logo{
+  flex: 1 1 400px;
+  max-width: max-content;
+}
+.menu_links{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  text-align: center;
+  padding: 15px 0;
+  max-width: 948px;
+  flex-grow: 1;
+
+  li{ margin: 0; }
+}
+.mobile-menu{
+  display:block;
+  visibility: hidden;
+  position: absolute;
+  background: white;
+  top: 0;
+  left: -150%;
+  right: 0;
+  width: 100%;
+  z-index: 5;
+  padding: 60px 20px 20px;
+  transition: all 0.5s ease-in-out;
+  .menu_links{
+    flex-direction: column;
+  }
+  
+}
+.open{
+  display: block;
+  left: 0;
+  visibility: visible;
+}
+.search {
+  position: absolute;
+  top: 35px;
+  right: 80px;
+  height: 35px;
+  svg {
+    width: 35px;
+    height: 35px;
+    filter: invert(38%) sepia(76%) saturate(3169%) hue-rotate(164deg) brightness(96%) contrast(101%);
+  }
+}
+.nav-icon {
+  display: block;
+  position: absolute;
+  top: 35px;
+  right: 20px;
+  z-index: 10;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #ffdd40;
+  height: 35px;
+  width: 40px;
+ 
+}
+.ham{
+  height: 6px;
+  width: 100%;
+  background: $text-color;
+  position: absolute;
+  border-radius: 25px;
+  top: calc(50% - 2px);
+  transition: transform 300ms ease-out, opacity 200ms linear;
+}
+.bar-1{ transform: translateY(12px);}
+.bar-2{ transform: translateY(-2px); }
+.bar-3{ transform: translateY(-15px);}
+.close{
+  .bar-1{transform: rotate(-45deg);}
+  .bar-2{opacity: 0;}
+  .bar-3{transform: rotate(45deg);}
+}

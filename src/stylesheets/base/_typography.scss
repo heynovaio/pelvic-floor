@@ -1,0 +1,103 @@
+a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+  color: inherit;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 53px;
+  line-height: 120%;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 120%;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+h4 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 36px;
+}
+
+h5 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+h6 {
+  line-height: 1.875rem;
+  font-size: 1.25rem;
+}
+
+p {
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+}
+.subtitle{
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  text-transform: uppercase;
+  color: $theme-blue;
+  display: block;
+}
+pre {
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+ol,
+ul {
+  margin: 20px 0 20px 30px;
+  li {
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+  }
+}
+
+ol {
+  list-style: decimal;
+}
+
+ul {
+  list-style: disc;
+  
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: $mobile) {
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+}

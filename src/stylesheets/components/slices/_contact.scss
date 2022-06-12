@@ -1,0 +1,25 @@
+.Contact {
+
+	h2,.social{margin-bottom: 20px;}
+	.description{margin-bottom: 40px; max-width: $width-3;}
+	.text{
+		margin: 0 auto;
+		@media screen and (max-width: $desktop){
+			margin: 0;
+		}
+	}
+	.map{
+		flex: 1 1 $width-3;
+		max-width: max-content;
+	}
+	
+	.social svg{
+		filter: invert(38%) sepia(76%) saturate(3169%) hue-rotate(164deg) brightness(96%) contrast(101%);
+		width: 20px;
+		height: 18px;
+		margin-right: 20px;
+	}
+	.btn-primary {
+		margin-top: 35px;
+	}
+}

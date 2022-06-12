@@ -1,0 +1,37 @@
+.FAQ {
+	h2 {text-align: center; margin-bottom: 60px;}
+
+	details{
+		background: #FFFFFF;
+		border: 1px solid rgba(0, 151, 181, 0.21);
+		border-radius: 4px;
+		filter: drop-shadow(8px 8px 32px rgba(25, 47, 81, 0.11));
+		padding: 38px 56px;
+		position: relative;
+		margin-bottom: 24px;
+
+		font-weight: 700;
+		font-size: 18px;
+		line-height: 150%;
+		letter-spacing: -0.015em;
+	}
+
+	details summary::-webkit-details-marker,
+	details summary::marker {
+	 display: none; 
+	 content: "";
+	}
+	details > summary:after{
+		content: "+";
+		position: absolute;
+		right: 40px;
+	}
+	details[open] > summary:after {
+    content: "-";
+    position: absolute;
+		right: 40px;
+	}
+	.btn-primary{
+		margin: 60px auto 20px;
+	}
+}

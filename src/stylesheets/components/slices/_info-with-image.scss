@@ -1,0 +1,25 @@
+.info-with-image{
+
+
+  .flex-wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  .text-content{
+    max-width: $width-5;
+    h2{margin-bottom: 24px;}
+    h3{margin-bottom: 10px;}
+    p{margin-bottom: 15px;}
+    .btn-primary{margin-top: 30px;}
+  }
+  .featured-image{
+    flex: 1 1 $width-3;
+    max-width: max-content;
+  }
+  .reverse{
+    flex-direction: row-reverse;
+  }
+}

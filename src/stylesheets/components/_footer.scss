@@ -1,0 +1,22 @@
+footer {
+  background: $theme-dark-blue;
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+footer h5{
+  font-family: $font-secondary;
+  text-transform: uppercase;
+}
+.footer-links{
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 45px 0;
+
+  li{
+    padding: 0 20px;
+  }
+}

@@ -6,7 +6,7 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 export const FAQ = ({ slice }) => (
   <section className="FAQ">
     <div className="Container">
-      <h2>{slice.primary.title}</h2>
+      <PrismicRichText field={slice.primary.display_title?.richText}/>
       {slice.items.map((item,index) => (
         <details key={slice.id + index}>
           <summary>{item.question}</summary>
@@ -27,7 +27,25 @@ export const query = graphql`
   fragment HomepageDataBodyFaq on PrismicHomepageDataBodyFaq {
     id
     primary {
-      title 
+      display_title {
+        richText
+      } 
+      button_label 
+      button_link {
+        url
+      }
+    }
+    items {
+      question
+      answer
+    }
+  }
+  fragment PageDataBodyFaq on PrismicPageDataBodyFaq {
+    id
+    primary {
+      display_title {
+        richText
+      } 
       button_label 
       button_link {
         url

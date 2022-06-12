@@ -56,6 +56,7 @@ export const query = graphql`
           ...PageDataBodyAppointmentForm
           ...PageDataBodyContact
           ...PageDataBodyArticleListings
+          ...PageDataBodyFaq
         }
       }
     }

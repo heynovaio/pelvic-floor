@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
+import { PrismicLink, PrismicRichText } from '@prismicio/react'
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { SliceZone } from '@prismicio/react'
 
 import { Layout } from '../components/Layout'
@@ -25,6 +27,22 @@ const ArticleTemplate = ({ data }) => {
 
   return (
     <Layout topMenu={topMenu.data} bottomMenu={bottomMenu.data} activeDocMeta={activeDoc}>
+      <section className="Article">
+        <div className="Container">
+          <div className="article-image">
+            {article.featured_image && 
+              <GatsbyImage
+                image = {article.featured_image?.gatsbyImageData}
+                alt = {article.featured_image?.alt || ""}
+              />
+            }
+          </div>
+          <div className="article-content">
+            <h1><span className="subtitle">{articleContent.tags[0] || "GENERAL"}</span>{article.article_title}</h1>
+            <PrismicRichText field={article.article_content?.richText}/>
+          </div>
+        </div>
+      </section>
       <SliceZone slices={article.body} components={components} />
     </Layout>
   )
@@ -47,6 +65,14 @@ export const query = graphql`
         uid
       }
       data {
+        featured_image {
+          gatsbyImageData
+          alt
+        }
+        article_title
+        article_content {
+          richText
+        }
         body {
           ... on PrismicSliceType {
             id

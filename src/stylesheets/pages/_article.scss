@@ -1,0 +1,32 @@
+.Article{
+  padding: 100px 0 200px;
+  .article-image{
+    max-width: 100%;
+    margin-bottom: 64px;
+  }
+  .article-content{
+    max-width: calc($width-6 + 40px);
+    text-align: justify;
+    h1{ margin-bottom: 45px;}
+    p{ margin-bottom: 24px; }
+    h3{ margin: 34px 0 10px;}
+    .block-img {
+      margin-bottom: 10px;
+    }
+    ul,ol{
+      margin-left: 56px;
+
+      li::marker{
+        color: $theme-blue;
+      }
+    }
+  }
+  .emphasis {
+    background: $theme-dark-blue;
+    color: white;
+    display: block;
+    padding: 56px 43px 46px;
+    box-shadow: 8px 8px 32px rgba(25, 47, 81, 0.11);
+    border-radius: 5px;
+  }
+}

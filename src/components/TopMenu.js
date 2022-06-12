@@ -7,14 +7,14 @@ import { LanguageSwitcher } from './LanguageSwitcher'
 
 export const TopMenu = ({ topMenu, activeDocMeta }) => {
 
-  const [isMobile, setIsMobile] = React.useState(window.innerWidth < 960);
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth < 1024);
   const [click, setClick] = React.useState(false);
   const handleClick = () => setClick(!click);
   const Close = () => setClick(false);
 
   React.useEffect(() => {
     window.addEventListener("resize", () => {
-        const ismobile = window.innerWidth < 1200;
+        const ismobile = window.innerWidth < 1024;
         if (ismobile !== isMobile) setIsMobile(ismobile);
     }, false);
   }, [isMobile]);
@@ -66,6 +66,7 @@ export const TopMenu = ({ topMenu, activeDocMeta }) => {
             <GatsbyImage
               image={topMenu.logo?.gatsbyImageData}
               alt={topMenu.logo?.alt || ""}
+              className="logo"
             />
           </PrismicLink>
           {isMobile ? mobileMenu : menuLinks}

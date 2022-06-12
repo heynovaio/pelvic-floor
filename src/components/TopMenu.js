@@ -6,8 +6,8 @@ import { FaSearch } from 'react-icons/fa'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
 export const TopMenu = ({ topMenu, activeDocMeta }) => {
-
-  const [isMobile, setIsMobile] = React.useState(window.innerWidth < 1024);
+  const isBrowser = () => typeof window !== "undefined"
+  const [isMobile, setIsMobile] = React.useState(isBrowser() && window.innerWidth < 1024);
   const [click, setClick] = React.useState(false);
   const handleClick = () => setClick(!click);
   const Close = () => setClick(false);

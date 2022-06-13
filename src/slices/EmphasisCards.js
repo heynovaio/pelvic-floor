@@ -2,6 +2,8 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { PrismicLink, PrismicRichText } from '@prismicio/react'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
+import Placeholder from '../images/placeholder.png'
+
 
 export const EmphasisCards = ({ slice }) => {
 
@@ -17,21 +19,29 @@ export const EmphasisCards = ({ slice }) => {
       </div>
       <div className="card-row">
         {slice.items.map((item,index) => (
-          <div className="card" key={slice.id + index}>
-            <GatsbyImage
-              image={item.article.document.data.featured_image?.thumbnails.listings_image.gatsbyImageData}
-              alt={item.article.document.data.featured_image?.alt || ""}
-              className="card-image"
-            />
-            <div className="card-copy">
-              <h4>{item.article.document.data.article_title}</h4>
-              <p>{item.article.document.tags}</p>
-              <p>{truncate(item.article.document.data.article_content?.text)}</p>
-              <PrismicLink href={item.article.url} className="btn-read-more">
-                {slice.primary.article_read_more_label}
-              </PrismicLink>
+          
+            <div className="card" key={slice.id + index}>
+              {item.article.document &&
+                (item.article?.document?.data.featured_image?.thumbnails.listings_image ? 
+                  <GatsbyImage
+                    image={item.article?.document?.data.featured_image?.thumbnails.listings_image.gatsbyImageData}
+                    alt={item.article?.document?.data.featured_image?.alt || ""}
+                    className="card-image"
+                  /> :
+                  <img className="card-image" src={Placeholder} alt=""/>
+                )
+              }
+              {item.article.document &&
+                <div className="card-copy">
+                  <h4>{item.article.document.data.article_title}</h4>
+                  <p>{item.article.document.tags}</p>
+                  <p>{truncate(item.article.document.data.article_content?.text)}</p>
+                  <PrismicLink href={item.article.url} className="btn-read-more">
+                    {slice.primary.article_read_more_label}
+                  </PrismicLink>
+                </div>
+              }
             </div>
-          </div>
         ))}
       </div>
       <div className="center-wrap">

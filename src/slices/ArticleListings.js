@@ -4,6 +4,7 @@ import { PrismicLink, PrismicRichText } from '@prismicio/react'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { FaSearch } from 'react-icons/fa'
 import AllArticles from "../components/AllArticles" 
+import Placeholder from '../images/placeholder.png'
 
 export const ArticleListings = ({ slice,context }) => {
 
@@ -79,11 +80,14 @@ export const ArticleListings = ({ slice,context }) => {
         <div className="article-list">
           {articles.map((item,index) => (
             <div className="card" key={"cat"+slice.id+index}>
-              <GatsbyImage
-                image={item.data.featured_image?.thumbnails.listings_image.gatsbyImageData}
-                alt={item.data.featured_image?.alt || ""}
-                className="card-image"
-              />
+              { item.data.featured_image.thumbnails?.listings_image?.gatsbyImageData ?
+                <GatsbyImage
+                  image={item.data.featured_image?.thumbnails.listings_image.gatsbyImageData}
+                  alt={item.data.featured_image?.alt || ""}
+                  className="card-image"
+                /> : 
+                <img className="card-image" src={Placeholder} alt=""/>
+              }
 
               <div className="card-copy">
                 <h4>{item.data.article_title}</h4>

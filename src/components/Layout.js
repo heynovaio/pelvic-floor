@@ -6,6 +6,8 @@ import { TopMenu } from './TopMenu'
 import { BottomMenu } from './BottomMenu'
 
 export const Layout = ({ children, topMenu, bottomMenu, activeDocMeta }) => {
+  const input1 = React.useRef(null);
+  
   const queryData = useStaticQuery(graphql`
     query SiteQuery {
       site {

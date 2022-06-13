@@ -25,7 +25,7 @@ const PageTemplate = ({ data }) => {
 
   return (
     <Layout topMenu={topMenu.data} bottomMenu={bottomMenu.data} activeDocMeta={activeDoc}>
-      <SliceZone slices={page.body} components={components} />
+      <SliceZone slices={page.body} components={components} context={{lang: lang}}/>
     </Layout>
   )
 }

@@ -5,12 +5,14 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { FaSearch } from 'react-icons/fa'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
+
 export const TopMenu = ({ topMenu, activeDocMeta }) => {
   const isBrowser = () => typeof window !== "undefined"
   const [isMobile, setIsMobile] = React.useState(isBrowser() && window.innerWidth < 1024);
   const [click, setClick] = React.useState(false);
   const handleClick = () => setClick(!click);
   const Close = () => setClick(false);
+
 
   React.useEffect(() => {
     window.addEventListener("resize", () => {
@@ -20,7 +22,7 @@ export const TopMenu = ({ topMenu, activeDocMeta }) => {
   }, [isMobile]);
 
   const search = (
-    <FaSearch/>
+   <PrismicLink href="/articles#search"><FaSearch/></PrismicLink>
   )
   const menuLinks = (
     <div className="menu_links">

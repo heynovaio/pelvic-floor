@@ -8,6 +8,7 @@ const AllArticles = () => {
           uid
           url
           tags
+          lang
           data {
             article_title
             featured_image {

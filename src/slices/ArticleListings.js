@@ -47,25 +47,25 @@ export const ArticleListings = ({ slice,context }) => {
   const handleChange = event => {
     setActive( event.target.value);
   };
-  const featuredSection = (
+  const featuredSection = (article) => (
     <section className="ArticleListings featured">
       <div className="Container">
         <div className="featured-article">
           <div className="flex-wrap">
             <div className="featured-image">
-              {allArticles[0]?.data.featured_image.gatsbyImageData &&
+              {article?.data.featured_image.gatsbyImageData &&
                 <GatsbyImage
-                  image={allArticles[0]?.data.featured_image?.gatsbyImageData }
-                  alt={allArticles[0]?.data.featured_image?.alt || ""}
+                  image={article?.data.featured_image?.gatsbyImageData }
+                  alt={article?.data.featured_image?.alt || ""}
                   className="featured-article-image"
                 />
               }
             </div>
             <div className="featured-text">
-              <h4>{allArticles[0]?.data.article_title}</h4>
-              <p>{allArticles[0]?.tags}</p>
-              <p>{allArticles[0]?.data.article_content?.text ? truncate(allArticles[0]?.data.article_content?.text) : ""}</p>
-              <PrismicLink href={allArticles[0]?.url} className="btn-read-more">
+              <h4>{article?.data.article_title}</h4>
+              <p>{article?.tags}</p>
+              <p>{article?.data.article_content?.text ? truncate(article?.data.article_content?.text) : ""}</p>
+              <PrismicLink href={article?.url} className="btn-read-more">
                 {slice.primary.read_article_label}
               </PrismicLink>
             </div>
@@ -78,7 +78,7 @@ export const ArticleListings = ({ slice,context }) => {
     <section className="ArticleListings list">
       <div className="Container">
         <div className="article-list">
-          {articles.map((item,index) => (
+          {(active == "All" ? articles.slice(1) : articles).map((item,index) => (
             <div className="card" key={"cat"+slice.id+index}>
               { item.data.featured_image.thumbnails?.listings_image?.gatsbyImageData ?
                 <GatsbyImage
@@ -142,20 +142,19 @@ export const ArticleListings = ({ slice,context }) => {
         </div>
       </div>
     </section>
-    {isFr && 
+    {isFr ?
       <>
-        { active == "All"  && searchTerm =="" ? featuredSection : null }
+        { active == "All"  && searchTerm =="" ? featuredSection(frArticles[0]) : null }
         { articleListings(category.filter(cur => cur.lang == "fr-ca"))}
         { active == "All" && category.length > 0 && <div className="Container"><h2>In English</h2></div>}
         { active == "All" && articleListings(category.filter(cur => cur.lang == "en-ca"))}
-      </>
-    }
-    {!isFr &&
-      <>
-        { active == "All"  && searchTerm =="" ? featuredSection : null }
+      </> :
+       <>
+        { active == "All"  && searchTerm =="" ? featuredSection(enArticles[0]) : null }
         { articleListings(category.filter(cur => cur.lang == "en-ca"))}
       </>
     }
+    
   </>
   )
 }

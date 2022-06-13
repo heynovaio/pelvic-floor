@@ -1,0 +1,20 @@
+.TextSection{
+  padding: 60px 0;
+  
+  .text-content{
+    max-width: calc($width-6 + 40px);
+    h1{ margin-bottom: 45px;}
+    p{ margin-bottom: 24px; }
+    h3{ margin: 34px 0 10px;}
+    .block-img {
+      margin-bottom: 10px;
+    }
+    ul,ol{
+      margin-left: 56px;
+
+      li::marker{
+        color: $theme-blue;
+      }
+    }
+  }
+}

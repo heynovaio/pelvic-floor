@@ -7,6 +7,7 @@ import { FAQ } from './FAQ'
 import { Contact } from './Contact'
 import { ArticleListings } from './ArticleListings'
 import { AppointmentForm } from './AppointmentForm'
+import { TextSection } from './TextSection'
 
 export const components = {
   info_with_image: InfoWithImage,
@@ -19,4 +20,5 @@ export const components = {
 
   appointment_form: AppointmentForm,
   article_listings: ArticleListings,
+  text_section: TextSection,
 }

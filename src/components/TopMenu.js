@@ -86,7 +86,10 @@ export const query = graphql`
     lang
     data {
       logo {
-        gatsbyImageData
+        gatsbyImageData(
+          width: 300
+          imgixParams: {q: 100}
+        )
         alt
       }
       menu_links {

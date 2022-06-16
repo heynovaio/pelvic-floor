@@ -8,11 +8,11 @@ export const AppointmentForm = ({ slice }) => {
   function switchInput(item){
     switch(item.input_type) {
       case "No Input":
-        return <label>{item.label}</label>;
+        return <p>{item.label}</p>;
       case "text":
-        return <><label>{item.label}</label><input type="text" id={item.label} name={item.label} required={item.required}/></>;
+        return <><label for={(item.label).replace(/ +/g, "")}>{item.label}</label><input type="text" id={(item.label).replace(/ +/g, "")} name={(item.label).replace(/ +/g, "")} required={item.required}/></>;
       case "textarea":
-        return <><label>{item.label}</label><input type="textarea" name={item.label} required={item.required}/></>;
+        return <><label for={(item.label).replace(/ +/g, "")}>{item.label}</label><textarea name={(item.label).replace(/ +/g, "")} id={(item.label).replace(/ +/g, "")} required={item.required}></textarea></>;
       case "submit":
         return <input type="submit" className="btn-primary" value={item.label} required={item.required}/>;
       case "radio":

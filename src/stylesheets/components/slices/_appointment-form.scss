@@ -1,5 +1,13 @@
 .AppointmentForm{
-	padding-top: 100px;
+
+	p {
+		margin-top: -20px;
+		margin-bottom: 24px;
+	}
+
+	.flex-wrap {
+		align-items: flex-start;
+	}
 
 	form {
 		max-width: $width-5;
@@ -7,8 +15,10 @@
 		label {
 			font-size: 20px;
 			font-weight: 700;
+			margin-bottom: 6px;
+			display: block;
 		}
-		input[type=text], input[type=textarea] {
+		input[type=text], textarea {
 			display: block;
 			border: 1px solid #192F51;
 			border-radius: 5px;
@@ -17,6 +27,9 @@
 			padding: 11px 5px;
 			margin-bottom: 20px;
 
+		}
+		input[type=radio] {
+			margin-right: 4px;
 		}
 		input[type=submit] {
 			font-weight: 700;
@@ -34,9 +47,16 @@
 			font-weight: 500;
 			font-size: 16px;
 			line-height: 150%;
+			margin-left: 5px;
+		}
+		textarea {
+			margin-bottom: 40px;
+			display: block;
 		}
 	}
 	.featured-image {
 		max-width: $width-5;
+		position: sticky;
+		top: 40px;
 	}
 }

@@ -2,8 +2,8 @@
 	
 	.Hero{
 		max-width: $width-6;
-		padding: 120px 0 40px;
-		h1{padding-bottom: 15px;}
+		padding: 0px 0 40px;
+		h1{padding-bottom: 15px;margin-bottom:10px;}
 	}
 	.nav{
 		display: flex;
@@ -23,11 +23,13 @@
 		.select{
 			background: $theme-blue;
 			color: white;
+			font-family: 'Poppins';
 		}
 		button {
 			width: 141px;
 			padding: 6.5px 0;
 			margin-bottom: 14px;
+			font-family: 'Poppins';
 		}
 	}
 	&.featured{
@@ -73,9 +75,9 @@
 		font-family: $font-main;
 
 	}
-	.flex-wrap{ justify-content: space-around; width: 100%;}
+	.flex-wrap{ justify-content: space-between; width: 100%;}
 	.featured-text{
-		max-width: $width-5;
+		max-width: $width-6;
 	}
 	.featured-article-image{
 		max-width: $width-5;
@@ -95,7 +97,13 @@
 		background: #FFFFFF;
 		border-radius: 10px;
 		filter: drop-shadow(8px 8px 32px rgba(25, 47, 81, 0.11));
+		border: 1px solid #c8f6ff;
 		overflow: hidden;
+		h2 {
+		  font-weight: 700;
+		  font-size: 20px;
+		  line-height: 36px;
+		}
 		.card-image{
 			max-width: 100%;
 			height: 295px;
@@ -104,4 +112,26 @@
 			padding: 20px 50px 38px 35px;
 		}
 	}
+	.category {
+		margin-top: 5px;
+		margin-bottom: 10px;
+		font-size: 16px;
+	}
+	.btn-read-more {
+		display: block;
+		text-decoration: underline;
+		margin-top: 10px;
+	}
+}
+.card a .card-image img {
+	transform: scale(1);
+	transition: all .25s;
+  filter: opacity(1);
+}
+.card a:hover .card-image {
+	background: #0097B5;
+}
+.card a:hover .card-image img {
+  transform: scale(1.5);
+  filter: opacity(0.65) saturate(2); 
 }

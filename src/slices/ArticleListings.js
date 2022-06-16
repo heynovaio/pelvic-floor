@@ -80,18 +80,19 @@ export const ArticleListings = ({ slice,context }) => {
         <div className="article-list">
           {(active == "All" ? articles.slice(1) : articles).map((item,index) => (
             <div className="card" key={"cat"+slice.id+index}>
-              { item.data.featured_image.thumbnails?.listings_image?.gatsbyImageData ?
-                <GatsbyImage
-                  image={item.data.featured_image?.thumbnails.listings_image.gatsbyImageData}
-                  alt={item.data.featured_image?.alt || ""}
-                  className="card-image"
-                /> : 
-                <img className="card-image" src={Placeholder} alt=""/>
-              }
-
+              <PrismicLink href={item.url}>
+                { item.data.featured_image.thumbnails?.listings_image?.gatsbyImageData ?
+                  <GatsbyImage
+                    image={item.data.featured_image?.thumbnails.listings_image.gatsbyImageData}
+                    alt={item.data.featured_image?.alt || ""}
+                    className="card-image"
+                  /> : 
+                  <img className="card-image" src={Placeholder} alt=""/>
+                }
+              </PrismicLink>
               <div className="card-copy">
-                <h4>{item.data.article_title}</h4>
-                <p>{item.tags}</p>
+                <h2>{item.data.article_title}</h2>
+                <p className="category">{item.tags} </p>
                 <p>{truncate(item.data.article_content?.text)}</p>
                 <PrismicLink href={item.url} className="btn-read-more">
                   {slice.primary.read_article_label}

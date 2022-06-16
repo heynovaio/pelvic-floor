@@ -4,7 +4,7 @@ import { PrismicLink, PrismicRichText } from '@prismicio/react'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { FaEnvelope, FaPhoneAlt, FaPrint, FaMapMarkerAlt } from "react-icons/fa"
 export const Contact = ({ slice }) => (
-  <section className="Contact">
+  <section className="Contact" id="contact">
     <div className="Container">
       <div className="flex-wrap">
         <div className="map">

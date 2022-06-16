@@ -21,6 +21,7 @@ export const EmphasisCards = ({ slice }) => {
         {slice.items.map((item,index) => (
           
             <div className="card" key={slice.id + index}>
+              <PrismicLink href={item.article.url}>
               {item.article.document &&
                 (item.article?.document?.data.featured_image?.thumbnails.listings_image ? 
                   <GatsbyImage
@@ -31,10 +32,11 @@ export const EmphasisCards = ({ slice }) => {
                   <img className="card-image" src={Placeholder} alt=""/>
                 )
               }
+              </PrismicLink>
               {item.article.document &&
                 <div className="card-copy">
                   <h4>{item.article.document.data.article_title}</h4>
-                  <p>{item.article.document.tags}</p>
+                  <p className="category">{item.article.document.tags}</p>
                   <p>{truncate(item.article.document.data.article_content?.text)}</p>
                   <PrismicLink href={item.article.url} className="btn-read-more">
                     {slice.primary.article_read_more_label}

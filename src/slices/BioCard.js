@@ -8,9 +8,9 @@ export const BioCard = ({ slice }) => (
     <div className="Container">
       <div className="flex-wrap">
         <div className="text">
-          <h5>{slice.primary.info}</h5>
+          <p className="tagline">{slice.primary.info}</p>
           <h2>{slice.primary.name}</h2>
-          <h3>{slice.primary.training}</h3>
+          <p className="training">{slice.primary.training}</p>
           <p>{slice.primary.description}</p>
         </div>
         <div className="bio-image">
@@ -34,6 +34,7 @@ export const query = graphql`
       training 
       description 
       read_more_label
+      read_more_link
       image {
         gatsbyImageData
         alt

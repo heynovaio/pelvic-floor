@@ -34,7 +34,6 @@ export const query = graphql`
       training 
       description 
       read_more_label
-      read_more_link
       image {
         gatsbyImageData
         alt

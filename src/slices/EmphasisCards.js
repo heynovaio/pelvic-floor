@@ -36,7 +36,11 @@ export const EmphasisCards = ({ slice }) => {
               {item.article.document &&
                 <div className="card-copy">
                   <h4>{item.article.document.data.article_title}</h4>
-                  <p className="category">{item.article.document.tags}</p>
+                  <p className="category">
+                    {item.article.document.tags.map((tag,index) => (
+                      <span className="tag" key={tag+index}>{ tag }</span>
+                    ))}
+                  </p>
                   <p>{truncate(item.article.document.data.article_content?.text)}</p>
                   <PrismicLink href={item.article.url} className="btn-read-more">
                     {slice.primary.article_read_more_label}

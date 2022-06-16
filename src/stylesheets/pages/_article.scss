@@ -7,6 +7,10 @@
     margin: 0 auto 50px;
     text-align: center;
   }
+  .tag {
+    display: inline-block;
+    padding-right: 10px;
+  }
   .article-content{
     max-width: calc($width-6 + 40px);
     margin: 0 auto;

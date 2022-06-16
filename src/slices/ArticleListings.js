@@ -36,7 +36,7 @@ export const ArticleListings = ({ slice,context }) => {
   React.useEffect(() => { 
     setCategory(
       active == "All" ? allArticles :
-      allArticles.filter(article => article.tags[0] === active) || null
+      allArticles.filter(article => article.tags.some(element => element==active)) || null
     );
   }, [active]);
 
@@ -63,7 +63,9 @@ export const ArticleListings = ({ slice,context }) => {
             </div>
             <div className="featured-text">
               <h4>{article?.data.article_title}</h4>
-              <p>{article?.tags}</p>
+              <p>{article?.tags.map((tag,index) => (
+                    <span className="tag" key={tag+index}>{ tag }</span>
+                  ))}</p>
               <p>{article?.data.article_content?.text ? truncate(article?.data.article_content?.text) : ""}</p>
               <PrismicLink href={article?.url} className="btn-read-more">
                 {slice.primary.read_article_label}
@@ -92,7 +94,11 @@ export const ArticleListings = ({ slice,context }) => {
               </PrismicLink>
               <div className="card-copy">
                 <h2>{item.data.article_title}</h2>
-                <p className="category">{item.tags} </p>
+                <p className="category">
+                  {item.tags.map((tag,index) => (
+                    <span className="tag" key={tag+index}>{ tag }</span>
+                  ))} 
+                </p>
                 <p>{truncate(item.data.article_content?.text)}</p>
                 <PrismicLink href={item.url} className="btn-read-more">
                   {slice.primary.read_article_label}

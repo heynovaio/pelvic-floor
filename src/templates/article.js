@@ -38,7 +38,14 @@ const ArticleTemplate = ({ data }) => {
             }
           </div>
           <div className="article-content">
-            <h1><span className="subtitle">{articleContent.tags[0] || "GENERAL"}</span>{article.article_title}</h1>
+            <h1>
+              <span className="subtitle">{articleContent.tags[0] ? articleContent.tags.map((tag,index) => (
+                    <span className="tag" key={tag+index}>{ tag }</span>
+                  )) : "GENERAL"}
+              </span> 
+
+              {article.article_title}
+            </h1>
             <PrismicRichText field={article.article_content?.richText}/>
           </div>
         </div>

@@ -12,6 +12,9 @@ export const BioCard = ({ slice }) => (
           <h2>{slice.primary.name}</h2>
           <p className="training">{slice.primary.training}</p>
           <p>{slice.primary.description}</p>
+          <PrismicLink className="btn-primary" href={slice.primary.read_more_button?.url}>
+            {slice.primary.read_more_label}
+          </PrismicLink>
         </div>
         <div className="bio-image">
           <GatsbyImage
@@ -34,6 +37,9 @@ export const query = graphql`
       training 
       description 
       read_more_label
+      read_more_button {
+        url
+      }
       image {
         gatsbyImageData
         alt

@@ -10,6 +10,9 @@
 	}
 	.text {
 		max-width: $width-6 ;
+		height: 100%;
+
+		.btn-primary{margin-top: 40px;}
 	}
 	.bio-image {
 		max-width: $width-4;

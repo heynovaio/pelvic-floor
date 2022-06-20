@@ -23,3 +23,30 @@
     }
   }
 }
+
+.thankyou {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60vw;
+  align-items: center;
+
+  h1 {
+    font-size: 5rem;
+    padding-bottom: 0;
+  }
+
+  p {
+    margin-bottom: 40px;
+    a {
+      color: inherit;
+
+      button {
+        padding: 20px 30px;
+        margin-top: 60px;
+        border-radius: 20px;
+        font-size: 20px;
+      }
+    }
+  }
+}

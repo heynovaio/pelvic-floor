@@ -14,7 +14,7 @@ export const AppointmentForm = ({ slice }) => {
       case "textarea":
         return <><label for={(item.label).replace(/ +/g, "")}>{item.label}</label><textarea name={(item.label).replace(/ +/g, "")} id={(item.label).replace(/ +/g, "")} required={item.required}></textarea></>;
       case "submit":
-        return <input type="submit" className="btn-primary" value={item.label} required={item.required}/>;
+        return <button type="submit" className="btn-primary" value={item.label} required={item.required}>Send</button>;
       case "radio":
         return (
           <>
@@ -38,7 +38,7 @@ export const AppointmentForm = ({ slice }) => {
           <div className="form-wrap">
             <h1>{slice.primary.title}</h1>
             <p>{slice.primary.description}</p>
-            <form>
+            <form name="contact" netlify>
               {slice.items.map((item,index) => (
                 <div className="form-item" key={slice.id + index}>
                   

@@ -1,4 +1,7 @@
 .FAQ {
+
+	h1 {text-align: center;}
+
 	h2 {text-align: center; margin-bottom: 60px;}
 
 	details{
@@ -6,14 +9,19 @@
 		border: 1px solid rgba(0, 151, 181, 0.21);
 		border-radius: 4px;
 		filter: drop-shadow(8px 8px 32px rgba(25, 47, 81, 0.11));
-		padding: 38px 56px;
+		padding: 38px 56px 28px;
 		position: relative;
-		margin-bottom: 24px;
-
-		font-weight: 700;
+		font-weight: 300;
 		font-size: 18px;
 		line-height: 150%;
 		letter-spacing: -0.015em;
+		max-width: 940px;
+    margin: 0 auto 24px;
+	}
+
+	details summary{
+		margin-bottom: 10px;
+		font-weight: 700;
 	}
 
 	details summary::-webkit-details-marker,
@@ -34,4 +42,7 @@
 	.btn-primary{
 		margin: 60px auto 20px;
 	}
+}
+section.FAQ {
+	margin: 0 0 60px;
 }

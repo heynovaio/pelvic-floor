@@ -14,6 +14,7 @@
   .article-content{
     max-width: calc($width-6 + 40px);
     margin: 0 auto;
+    img {max-width: 100%;}
     h1{ margin-bottom: 45px;}
     p{ margin-bottom: 24px; }
     h3{ margin: 34px 0 10px;}

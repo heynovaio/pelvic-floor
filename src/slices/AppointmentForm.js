@@ -66,18 +66,17 @@ export const AppointmentForm = ({ slice,context }) => {
               <label htmlFor="Name" style={{display:"none"}}>Name:</label><label>{slice.primary.name_label}</label><input type="text" onChange={handleChange} id="Name" name="Name" required/>
               <label htmlFor="Phone" style={{display:"none"}}>Phone:</label><label>{slice.primary.phone_number}</label><input type="text" onChange={handleChange} id="Phone" name="Phone" required/>
               <label htmlFor="Email" style={{display:"none"}}>Email:</label><label>{slice.primary.email}</label><input type="text" onChange={handleChange} id="Email" name="Email" required/>
-              <label htmlFor="Source">{slice.primary.radio_label}</label>
+              <label>{slice.primary.radio_label}</label>
               <fieldset>
                   {listify(slice.primary.radio_options).map((item,index) => (
                     <div key={index}>
                       <label htmlFor="Source" style={{display:"none"}}>Source:</label>
-                      <label className="checkbox" key={index}>
                         <input 
                           type="radio" 
                           id={index} 
-                          value={item} 
+                          value={ item } 
                           name="Source"
-                         />{ item }</label>
+                         /><label className="checkbox" htmlFor={index}>{ item }</label>
                     </div>    
                   ))}
               </fieldset> 

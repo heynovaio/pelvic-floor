@@ -51,7 +51,7 @@ export const AppointmentForm = ({ slice,context }) => {
             <h1>{slice.primary.title}</h1>
             <p>{slice.primary.description}</p>
             <form  
-            name="appointmentV2" 
+            name="appointment" 
             method="POST" 
             data-netlify-honeypot="bot-field"
             data-netlify="true" 

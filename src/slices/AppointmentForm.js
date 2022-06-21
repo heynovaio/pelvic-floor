@@ -38,45 +38,9 @@ export const AppointmentForm = ({ slice }) => {
       .catch((error) => alert(error))
   }
 
-
-  function switchInput(item){
-    switch(item.input_type) {
-      case "No Input":
-        return <p>{item.label}</p>;
-      case "text":
-        return <><label htmlFor={(item.label).replace(/ +/g, "")}>{item.label}</label><input type="text" onChange={handleChange} id={(item.label).replace(/ +/g, "")} name={(item.label).replace(/ +/g, "")} required={item.required}/></>;
-      case "textarea":
-        return <><label htmlFor={(item.label).replace(/ +/g, "")}>{item.label}</label><textarea onChange={handleChange} name={(item.label).replace(/ +/g, "")} id={(item.label).replace(/ +/g, "")} required={item.required}></textarea></>;
-      case "submit":
-        return <button type="submit" className="btn-primary">Send</button>;
-      {/* case "checkbox":
-        return (
-          <fieldset>
-            <legend>{item.label}</legend>
-            <PrismicRichText
-              field={item.checkbox_options?.richText}
-              components={{
-                listItem: ({ text,children }) => <li>
-                <label key={(index = index+1)} className="checkbox" htmlFor={(text).replace(/ +/g, "")}>
-                <input 
-                type="radio" 
-                id={(text).replace(/ +/g, "")} 
-                value={(text)} 
-                name={(text).replace(/ +/g, "")} 
-                
-                checked={this.state.checked == index? true: false}
-                                    key={(index = index+1)}
-                                    onChange={this.handleRadioChange.bind(this,index)} 
-
-                checked={value} onChange={handleRadioChange}
-                required={item.required}/>{children}</label></li>,
-              }}
-            />
-          </fieldset> 
-        ); */ }
-      default:
-        return null;
-    }
+  function listify(item){
+    if (item)return item.split(',');
+    return [];
   }
   return (
     <section className="AppointmentForm">
@@ -98,13 +62,25 @@ export const AppointmentForm = ({ slice }) => {
                   Don’t fill this out: <input name="bot-field" onChange={handleChange} />
                 </label>
               </p>
-              {slice.items.map((item,index) => (
-                <div className="form-item" key={slice.id + index}>
-                  
-                    {switchInput(item)}
-                </div>
-              ))}
-
+              <label htmlFor="Name">{slice.primary.name_label}</label><input type="text" onChange={handleChange} id="Name" name="Name" required/>
+              <label htmlFor="Phone">{slice.primary.phone_number}</label><input type="text" onChange={handleChange} id="Phone" name="Phone" required/>
+              <label htmlFor="Email">{slice.primary.email}</label><input type="text" onChange={handleChange} id="Email" name="Email" required/>
+              <fieldset>
+                <legend>{slice.primary.radio_label}</legend>
+                  {listify(slice.primary.radio_options).map((item,index) => (
+                   <label className="checkbox" key={index} htmlFor={index}>
+                      <input 
+                        type="radio" 
+                        id={index} 
+                        value={item} 
+                        name="Source"
+                       />{ item }</label> 
+                    
+                  ))}
+              </fieldset> 
+              <label htmlFor="Message">{slice.primary.message_label}</label><textarea onChange={handleChange} name="Message" id="Message" required></textarea>
+              <p>{slice.primary.privacy_notice}</p>
+              <button type="submit" className="btn-primary">{slice.primary.submit_label}</button>
             </form>
           </div>
           <div className="featured-image">
@@ -130,14 +106,14 @@ export const query = graphql`
         gatsbyImageData 
         alt 
       }
-    }
-    items {
-      label 
-      input_type
-      required
-      checkbox_options {
-        richText
-      }
+      name_label
+      phone_number
+      email
+      radio_label
+      radio_options
+      message_label
+      privacy_notice
+      submit_label
     }
   }
 `

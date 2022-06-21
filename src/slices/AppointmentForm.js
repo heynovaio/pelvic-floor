@@ -4,8 +4,9 @@ import { navigate } from 'gatsby-link'
 import { PrismicLink, PrismicRichText } from '@prismicio/react'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 
-export const AppointmentForm = ({ slice }) => {
+export const AppointmentForm = ({ slice,context }) => {
   var index = 0;
+  const isEng = context.lang == 'fr-ca'
 
   function encode(data) {
     return Object.keys(data)
@@ -65,8 +66,8 @@ export const AppointmentForm = ({ slice }) => {
               <label htmlFor="Name">{slice.primary.name_label}</label><input type="text" onChange={handleChange} id="Name" name="Name" required/>
               <label htmlFor="Phone">{slice.primary.phone_number}</label><input type="text" onChange={handleChange} id="Phone" name="Phone" required/>
               <label htmlFor="Email">{slice.primary.email}</label><input type="text" onChange={handleChange} id="Email" name="Email" required/>
+              <label htmlFor="Source">{slice.primary.radio_label}</label>
               <fieldset>
-                <legend>{slice.primary.radio_label}</legend>
                   {listify(slice.primary.radio_options).map((item,index) => (
                    <label className="checkbox" key={index} htmlFor={index}>
                       <input 
@@ -74,8 +75,7 @@ export const AppointmentForm = ({ slice }) => {
                         id={index} 
                         value={item} 
                         name="Source"
-                       />{ item }</label> 
-                    
+                       />{ item }</label>    
                   ))}
               </fieldset> 
               <label htmlFor="Message">{slice.primary.message_label}</label><textarea onChange={handleChange} name="Message" id="Message" required></textarea>

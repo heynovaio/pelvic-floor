@@ -63,19 +63,22 @@ export const AppointmentForm = ({ slice,context }) => {
                   Don’t fill this out: <input name="bot-field" onChange={handleChange} />
                 </label>
               </p>
-              <label htmlFor="Name">{slice.primary.name_label}</label><input type="text" onChange={handleChange} id="Name" name="Name" required/>
-              <label htmlFor="Phone">{slice.primary.phone_number}</label><input type="text" onChange={handleChange} id="Phone" name="Phone" required/>
-              <label htmlFor="Email">{slice.primary.email}</label><input type="text" onChange={handleChange} id="Email" name="Email" required/>
+              <label htmlFor="Name" style={{display:"none"}}>Name:</label><label>{slice.primary.name_label}</label><input type="text" onChange={handleChange} id="Name" name="Name" required/>
+              <label htmlFor="Phone" style={{display:"none"}}>Phone:</label><label>{slice.primary.phone_number}</label><input type="text" onChange={handleChange} id="Phone" name="Phone" required/>
+              <label htmlFor="Email" style={{display:"none"}}>Email:</label><label>{slice.primary.email}</label><input type="text" onChange={handleChange} id="Email" name="Email" required/>
               <label htmlFor="Source">{slice.primary.radio_label}</label>
               <fieldset>
                   {listify(slice.primary.radio_options).map((item,index) => (
-                   <label className="checkbox" key={index} htmlFor={index}>
-                      <input 
-                        type="radio" 
-                        id={index} 
-                        value={item} 
-                        name="Source"
-                       />{ item }</label>    
+                    <div key={index}>
+                      <label htmlFor="Source" style={{display:"none"}}>Source:</label>
+                      <label className="checkbox" key={index}>
+                        <input 
+                          type="radio" 
+                          id={index} 
+                          value={item} 
+                          name="Source"
+                         />{ item }</label>
+                    </div>    
                   ))}
               </fieldset> 
               <label htmlFor="Message">{slice.primary.message_label}</label><textarea onChange={handleChange} name="Message" id="Message" required></textarea>

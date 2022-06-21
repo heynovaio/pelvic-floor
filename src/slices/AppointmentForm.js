@@ -73,10 +73,11 @@ export const AppointmentForm = ({ slice,context }) => {
                       <label htmlFor="Source" style={{display:"none"}}>Source:</label>
                         <input 
                           type="radio" 
-                          id={index} 
+                          id={ item } 
                           value={ item } 
                           name="Source"
-                         /><label className="checkbox" htmlFor={index}>{ item }</label>
+                          onChange={handleChange}
+                         />{ item }
                     </div>    
                   ))}
               </fieldset> 

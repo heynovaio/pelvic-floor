@@ -75,13 +75,13 @@ export const AppointmentForm = ({ slice,context }) => {
                           type="radio" 
                           id={ item } 
                           value={ item } 
-                          name="Source"
+                          name="Source:"
                           onChange={handleChange}
                          />{ item }
                     </div>    
                   ))}
               </fieldset> 
-              <label htmlFor="Message">{slice.primary.message_label}</label><textarea onChange={handleChange} name="Message" id="Message" required></textarea>
+              <label htmlFor="Message" style={{display:"none"}}>Message:</label><label>{slice.primary.message_label}</label><textarea onChange={handleChange} name="Message:" id="Message" required></textarea>
               <p>{slice.primary.privacy_notice}</p>
               <button type="submit" className="btn-primary">{slice.primary.submit_label}</button>
             </form>

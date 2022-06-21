@@ -22,7 +22,7 @@ export const TopMenu = ({ topMenu, activeDocMeta }) => {
   }, [isMobile]);
 
   const search = (
-   <PrismicLink href="/articles#search"><FaSearch/></PrismicLink>
+   <PrismicLink href="/articles#search"><FaSearch/><span style={{visibility:"hidden"}}>Search</span></PrismicLink>
   )
   const menuLinks = (
     <div className="menu_links">

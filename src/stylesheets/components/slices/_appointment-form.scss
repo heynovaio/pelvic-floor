@@ -11,12 +11,19 @@
 
 	form {
 		max-width: $width-5;
-
+		label {
+			text-transform: capitalize;
+		}
+		legend,
 		label {
 			font-size: 20px;
 			font-weight: 700;
 			margin-bottom: 6px;
 			display: block;
+
+		}
+		legend {
+			margin-bottom: 15px;
 		}
 		input[type=text], textarea {
 			display: block;
@@ -28,7 +35,7 @@
 			margin-bottom: 20px;
 
 		}
-		input[type=radio] {
+		input[type=checkbox] {
 			margin-right: 4px;
 		}
 		input[type=submit] {
@@ -39,11 +46,12 @@
 		}
 		ul {
 			margin: 0;
+			list-style: none;
 		}
-		.radio {
+		.checkbox {
 			margin-bottom: 20px;
 		}
-		.radio label {
+		label.checkbox {
 			font-weight: 500;
 			font-size: 16px;
 			line-height: 150%;

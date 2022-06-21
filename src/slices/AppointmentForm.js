@@ -22,6 +22,7 @@ export const AppointmentForm = ({ slice }) => {
     setState({ ...state, [e.target.name]: e.target.value })
   }
 
+
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
@@ -48,18 +49,31 @@ export const AppointmentForm = ({ slice }) => {
         return <><label htmlFor={(item.label).replace(/ +/g, "")}>{item.label}</label><textarea onChange={handleChange} name={(item.label).replace(/ +/g, "")} id={(item.label).replace(/ +/g, "")} required={item.required}></textarea></>;
       case "submit":
         return <button type="submit" className="btn-primary">Send</button>;
-      case "radio":
+      {/* case "checkbox":
         return (
-          <>
-            <label>{item.label}</label>
+          <fieldset>
+            <legend>{item.label}</legend>
             <PrismicRichText
-              field={item.radio_options?.richText}
+              field={item.checkbox_options?.richText}
               components={{
-                listItem: ({ text,children }) => <div key={(index = index+1)} className="radio"><input type="radio" name={item.label} value={text} required={item.required}/>{children}</div>,
+                listItem: ({ text,children }) => <li>
+                <label key={(index = index+1)} className="checkbox" htmlFor={(text).replace(/ +/g, "")}>
+                <input 
+                type="radio" 
+                id={(text).replace(/ +/g, "")} 
+                value={(text)} 
+                name={(text).replace(/ +/g, "")} 
+                
+                checked={this.state.checked == index? true: false}
+                                    key={(index = index+1)}
+                                    onChange={this.handleRadioChange.bind(this,index)} 
+
+                checked={value} onChange={handleRadioChange}
+                required={item.required}/>{children}</label></li>,
               }}
             />
-          </>
-        );
+          </fieldset> 
+        ); */ }
       default:
         return null;
     }
@@ -71,8 +85,19 @@ export const AppointmentForm = ({ slice }) => {
           <div className="form-wrap">
             <h1>{slice.primary.title}</h1>
             <p>{slice.primary.description}</p>
-            <form  name="appointment" method="POST" data-netlify="true" onSubmit={handleSubmit} action="/thankYou/">
+            <form  
+            name="appointment" 
+            method="POST" 
+            data-netlify-honeypot="bot-field"
+            data-netlify="true" 
+            onSubmit={handleSubmit} 
+            action="/thankYou/">
               <input type="hidden" name="form-name" value="appointment" />
+              <p hidden>
+                <label>
+                  Don’t fill this out: <input name="bot-field" onChange={handleChange} />
+                </label>
+              </p>
               {slice.items.map((item,index) => (
                 <div className="form-item" key={slice.id + index}>
                   
@@ -110,7 +135,7 @@ export const query = graphql`
       label 
       input_type
       required
-      radio_options {
+      checkbox_options {
         richText
       }
     }

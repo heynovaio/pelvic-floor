@@ -21,7 +21,11 @@ export const Layout = ({ children, topMenu, bottomMenu, activeDocMeta }) => {
 
   return (
     <>
-      <Helmet>
+      <Helmet
+        htmlAttributes={{
+          lang: activeDocMeta.lang
+        }}
+      >
         <meta charSet="utf-8" />
         <title>{queryData.site.siteMetadata.title}</title>
         <meta

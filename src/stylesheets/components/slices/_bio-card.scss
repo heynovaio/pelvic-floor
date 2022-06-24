@@ -5,14 +5,19 @@
 		background: #FFFFFF;
 		box-shadow: 8px 8px 32px rgba(25, 47, 81, 0.11);
 		border-radius: 5px; 
-		padding: 60px 58px 60px 90px;
-
+		padding: 60px 15px;
+		justify-content: space-evenly;
 		align-items: flex-start;
+
+		@media screen and (max-width: $tablet){
+			margin: 0 -15px;
+			justify-content: space-between;
+		}
 	}
 	.text {
 		max-width: $width-6 ;
 		height: 100%;
-
+		flex: 1 1 400px;
 		.btn-primary{margin-top: 40px;}
 	}
 	.bio-image {

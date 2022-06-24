@@ -8,21 +8,27 @@ import { LanguageSwitcher } from './LanguageSwitcher'
 
 export const TopMenu = ({ topMenu, activeDocMeta }) => {
   const isBrowser = () => typeof window !== "undefined"
-  const [isMobile, setIsMobile] = React.useState(isBrowser() && window.innerWidth < 1024);
+  // const [isMobile, setIsMobile] = React.useState(isBrowser() && window.innerWidth < 1024);
+  const [width, setWidth] = React.useState(isBrowser() &&window.innerWidth);
+  const handleWindowSizeChange = () => {
+    setWidth(window.innerWidth);
+  }
+  React.useEffect(() => {
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange);
+    }
+  }, []);
+
   const [click, setClick] = React.useState(false);
   const handleClick = () => setClick(!click);
   const Close = () => setClick(false);
 
-
-  React.useEffect(() => {
-    window.addEventListener("resize", () => {
-        const ismobile = window.innerWidth < 1024;
-        if (ismobile !== isMobile) setIsMobile(ismobile);
-    }, false);
-  }, [isMobile]);
+  const isMobile = width <= 1024;
+  
 
   const search = (
-   <PrismicLink href="/articles#search"><FaSearch/><span style={{visibility:"hidden"}}>Search</span></PrismicLink>
+   <PrismicLink href="/articles#search"><FaSearch alt="Search"/><span className="visually-hidden">Search</span></PrismicLink>
   )
   const menuLinks = (
     <div className="menu_links">
@@ -33,7 +39,7 @@ export const TopMenu = ({ topMenu, activeDocMeta }) => {
           </PrismicLink>
         </li>
       ))}
-        { isMobile ? <></> : <li>{search}</li>}
+        { !isMobile && <li className="search-desktop">{search}</li>}
         <li>
           <PrismicLink href={topMenu.button_link?.url} className="btn-primary">
             {topMenu.button_label}

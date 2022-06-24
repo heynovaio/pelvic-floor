@@ -55,7 +55,7 @@ header{
   max-width: 948px;
   flex-grow: 1;
 
-  li{ margin: 0; }
+  li{ margin: 0; flex-shrink: 0;}
 }
 .mobile-menu{
   display:block;
@@ -89,6 +89,21 @@ header{
     height: 35px;
     filter: invert(38%) sepia(76%) saturate(3169%) hue-rotate(164deg) brightness(96%) contrast(101%);
   }
+}
+.search-desktop{
+  display: flex;
+  justify-content: flex-end;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
 }
 .nav-icon {
   display: block;

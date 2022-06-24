@@ -28,9 +28,6 @@ export const TopMenu = ({ topMenu, activeDocMeta }) => {
     }, false);
   }, [isMobile]);
 
-  const search = (
-   <PrismicLink href="/articles#search"><FaSearch alt="Search"/><span className="visually-hidden">Search</span></PrismicLink>
-  )
   const menuLinks = (
     <div className="menu_links">
       {topMenu.menu_links.map((item,index) => (
@@ -40,7 +37,7 @@ export const TopMenu = ({ topMenu, activeDocMeta }) => {
           </PrismicLink>
         </li>
       ))}
-        { !isMobile && <li className="search-desktop">{search}</li>}
+        { !isMobile && <li><PrismicLink href="/articles#search" className="Desktop-Search"><FaSearch alt="Search" /><span className="visually-hidden">Search</span></PrismicLink></li>}
         <li>
           <PrismicLink href={topMenu.button_link?.url} className="btn-primary">
             {topMenu.button_label}
@@ -52,7 +49,7 @@ export const TopMenu = ({ topMenu, activeDocMeta }) => {
   const mobileMenu = (
     <>
       <div className="search">
-        {search}
+        <PrismicLink href="/articles#search" className="Mobile-Search"><FaSearch alt="Search"/><span className="visually-hidden">Search</span></PrismicLink>
       </div>
       <div className={click ? "nav-icon close" : "nav-icon"} onClick={handleClick} tabIndex="0">
         <span className="ham bar-1"/>

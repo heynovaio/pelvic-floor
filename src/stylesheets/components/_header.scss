@@ -79,7 +79,7 @@ header{
   left: 0;
   visibility: visible;
 }
-.search {
+.Mobile-Search {
   position: absolute;
   top: 35px;
   right: 80px;
@@ -90,10 +90,7 @@ header{
     filter: invert(38%) sepia(76%) saturate(3169%) hue-rotate(164deg) brightness(96%) contrast(101%);
   }
 }
-.search-desktop{
-  display: flex;
-  justify-content: flex-end;
-}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

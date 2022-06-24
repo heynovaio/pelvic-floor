@@ -20,7 +20,7 @@ export const TopMenu = ({ topMenu, activeDocMeta }) => {
     }, false);
   }, [isMobile]);
 
-  const menuLinks = (
+  const desktopMenu = (
     <div className="menu_links">
       {topMenu.menu_links.map((item,index) => (
         <li key={"menu-link"+index}>
@@ -49,7 +49,20 @@ export const TopMenu = ({ topMenu, activeDocMeta }) => {
         <span className="ham bar-3"/>
       </div>
       <div className={click ? "mobile-menu open" : "mobile-menu"}>
-        { menuLinks }
+        <div className="menu_links">
+          {topMenu.menu_links.map((item,index) => (
+            <li key={"menu-link"+index}>
+              <PrismicLink href={item.link?.url}>
+                {item.link_label}
+              </PrismicLink>
+            </li>
+          ))}
+            <li>
+              <PrismicLink href={topMenu.button_link?.url} className="btn-primary">
+                {topMenu.button_label}
+              </PrismicLink>
+            </li>
+        </div>
       </div>
     </>
   )
@@ -67,7 +80,7 @@ export const TopMenu = ({ topMenu, activeDocMeta }) => {
               className="logo"
             />
           </PrismicLink>
-          {!isMobile ? menuLinks : mobileMenu}
+          {isMobile ?  mobileMenu : desktopMenu}
           
         </ul>
       </nav>

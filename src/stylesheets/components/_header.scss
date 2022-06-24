@@ -56,10 +56,6 @@ header{
   flex-grow: 1;
 
   li{ margin: 0; flex-shrink: 0;}
-  @media screen and (max-width: $tablet){
-    display: none;
-  }
- 
 }
 .mobile-menu{
   display:block;
@@ -75,17 +71,13 @@ header{
   transition: left 0.33s ease-in-out;
   .menu_links{
     flex-direction: column;
-    display: none;
   }
-
+  
 }
 .open{
   display: block;
   left: 0;
   visibility: visible;
-  .menu_links{
-    display: flex;
-  }
 }
 .Mobile-Search {
   position: absolute;

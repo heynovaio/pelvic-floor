@@ -18,14 +18,6 @@ export const TopMenu = ({ topMenu, activeDocMeta }) => {
         const ismobile = window.innerWidth < 1024;
         if (ismobile !== isMobile) setIsMobile(ismobile);
     }, false);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  React.useEffect(() => {
-    window.addEventListener("resize", () => {
-        const ismobile = window.innerWidth < 1024;
-        if (ismobile !== isMobile) setIsMobile(ismobile);
-    }, false);
   }, [isMobile]);
 
   const menuLinks = (
@@ -75,7 +67,7 @@ export const TopMenu = ({ topMenu, activeDocMeta }) => {
               className="logo"
             />
           </PrismicLink>
-          {isMobile ? mobileMenu : menuLinks}
+          {!isMobile ? menuLinks : mobileMenu}
           
         </ul>
       </nav>

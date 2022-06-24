@@ -8,24 +8,25 @@ import { LanguageSwitcher } from './LanguageSwitcher'
 
 export const TopMenu = ({ topMenu, activeDocMeta }) => {
   const isBrowser = () => typeof window !== "undefined"
-  // const [isMobile, setIsMobile] = React.useState(isBrowser() && window.innerWidth < 1024);
-  const [width, setWidth] = React.useState(isBrowser() &&window.innerWidth);
-  const handleWindowSizeChange = () => {
-    setWidth(window.innerWidth);
-  }
-  React.useEffect(() => {
-    window.addEventListener('resize', handleWindowSizeChange);
-    return () => {
-      window.removeEventListener('resize', handleWindowSizeChange);
-    }
-  }, []);
-
+  const [isMobile, setIsMobile] = React.useState(isBrowser() && window.innerWidth < 1024);
   const [click, setClick] = React.useState(false);
   const handleClick = () => setClick(!click);
   const Close = () => setClick(false);
 
-  const isMobile = width <= 1024;
-  
+  React.useEffect(() => {
+    window.addEventListener("resize", () => {
+        const ismobile = window.innerWidth < 1024;
+        if (ismobile !== isMobile) setIsMobile(ismobile);
+    }, false);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  React.useEffect(() => {
+    window.addEventListener("resize", () => {
+        const ismobile = window.innerWidth < 1024;
+        if (ismobile !== isMobile) setIsMobile(ismobile);
+    }, false);
+  }, [isMobile]);
 
   const search = (
    <PrismicLink href="/articles#search"><FaSearch alt="Search"/><span className="visually-hidden">Search</span></PrismicLink>

@@ -12,7 +12,10 @@ header{
 }
 .language-switcher{
   list-style: none;
+  display: flex;
+  align-items: center;
   gap: 10px;
+  padding-right: 10px;
   svg{
     filter: brightness(0) invert(1);
   }
@@ -21,11 +24,10 @@ header{
     background: none;
     color: white;
   }
-
   option {
     color: $text-color;
+    display: flex;
   }
-
 }
 
 .nav-menu{

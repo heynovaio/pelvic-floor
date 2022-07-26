@@ -13,6 +13,16 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-google-gtag',
+      options: {
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          'G-E3YB0T9VF3', // Google Analytics / GA
+
+        ]
+      }
+    },
+    {
       resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: prismicConfig.prismicRepo,
@@ -28,7 +38,7 @@ module.exports = {
         accessToken: process.env.PRISMIC_ACCESS_TOKEN,
       },
     },
-    `gatsby-plugin-sitemap`,
+    'gatsby-plugin-sitemap',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',

@@ -9,6 +9,7 @@ module.exports = {
   siteMetadata: {
     title: 'Pelvic Floor',
     description: 'Pelvic Floor physiotherapy ',
+    siteUrl: `https://pelvic-floor.ca/`,
   },
   plugins: [
     {
@@ -27,6 +28,7 @@ module.exports = {
         accessToken: process.env.PRISMIC_ACCESS_TOKEN,
       },
     },
+    `gatsby-plugin-sitemap`,
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',

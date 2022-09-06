@@ -9,7 +9,7 @@ module.exports = {
   siteMetadata: {
     title: 'Pelvic Floor',
     description: 'Pelvic Floor physiotherapy ',
-    siteUrl: `https://pelvic-floor.ca/`,
+    siteUrl: 'https://pelvic-floor.ca/',
   },
   plugins: [
     {
@@ -37,6 +37,14 @@ module.exports = {
         repositoryName: prismicConfig.prismicRepo,
         accessToken: process.env.PRISMIC_ACCESS_TOKEN,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://pelvic-floor.ca',
+        sitemap: 'https://pelvic-floor.ca/sitemap/sitemap-index.xml',
+        policy: [{userAgent: '*', allow: '/'}]
+      }
     },
     'gatsby-plugin-sitemap',
     'gatsby-plugin-image',
